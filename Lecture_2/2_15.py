@@ -1,0 +1,1 @@
+print "-".join(a for a in ("".join(str(b) for b in [123,456,7,8,9,10000,123])))

@@ -1,4 +1,4 @@
 # python-brighton
-Python Lector all in JU. 
+Python Lectures all in JU. 
 
 Just for the time being and first commit.

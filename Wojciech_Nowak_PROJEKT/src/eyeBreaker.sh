@@ -1,11 +1,11 @@
 #!/bin/bash
 
 function HELP
-{	
-	echo -e "\nusage: eyeBreaker.sh [-h] [-i PERIOD]\n\nThis script performs notification for every PERIOD minutes of work.\n\n\
-	\rpositional arguments:\n TEMP\t\tvalue of the color temperature [1000-10000], not applicable in initial mode\n\n\
+{
+	echo -e "\nusage: eyeBreaker.sh [-h][-q][-i PERIOD]\n\nThis script performs notification for every PERIOD minutes of work.\n\n\
+	\rpositional arguments:\n PERIOD\t\ttime between notifications\n\n\
 	\roptional arguments:\n -h, --help\tshow this help message and exit\n\
-	\r -i, --initial\turn script in initial mode, add crontab jobs\
+	\r -i, --initial\trun script in initial mode, add crontab jobs\n\
 	\r -q, --disable\tdisable EyeBreaker\n\
 	\rlibraries:\n it is recommended, but not necessary to get redshift program\n\
 	\n\n@NOTE: This script is part of EyeCare program.\n"

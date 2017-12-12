@@ -12,7 +12,7 @@ class SunParameters:
 	\rRequirements:\nIt is neccessary to have Internet connection to make this script runs correctly.
     In case of no Internet connection default value will be returned (sunrise = 7:00, sunset = 17:00).
 	\rNOTE: This script is part of EyeCare program.\n"""
-    
+
     lines = []
     errFlag = False
     def __init__(self):
@@ -30,14 +30,14 @@ class SunParameters:
         if self.errFlag == True:
             return "7:00"
         else:
-            time = self.lines[0].split(':', 1) 
+            time = self.lines[0].split(':', 1)
             sunrise = str(int(time[0]) - 1) + ':' + time[1]
             return sunrise
     def getSunset(self):
         if self.errFlag == True:
             return "17:00"
         else:
-            time = self.lines[2].split(':', 1) 
+            time = self.lines[2].split(':', 1)
             sunset = str(int(time[0]) - 1) + ':' + time[1]
             return sunset
     def getSunParam(self):
@@ -46,3 +46,4 @@ class SunParameters:
         return rise + ' ' + sets + '\n'
 
 if __name__ == "__main__":
+    SunParameters().getSunParam()

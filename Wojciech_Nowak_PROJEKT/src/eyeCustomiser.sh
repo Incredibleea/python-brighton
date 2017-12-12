@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function HELP
-{	
+{
 	echo -e "\nusage: eyeCustomiser.sh [-h] [-i] [-c] [TEMP]\n\nThis script customise display's colors temperature according to time.\n\n\
 	\rpositional arguments:\n TEMP\t\tvalue of the color temperature [1000-10000], not applicable in initial mode\n\n\
 	\roptional arguments:\n -h, --help\tshow this help message and exit\n\
@@ -36,7 +36,7 @@ function eyeCustomiser()
 		echo `$PARENT_DIR/lib/sct $COLOR_TEMP` 1>/dev/null
 	else																		# out of libraries
 		for monitor in "${MONITOR[@]}"; do
-			echo "Program redshift and program sct is not available. Using basic xrandr."
+			echo "Program redshift and program sct are not available. Using basic xrandr."
 			echo `xrandr --output $monitor --brightness 0.8` 1>/dev/null
 		done
 	fi
@@ -46,7 +46,7 @@ function setConstants()
 {
 	PARENT_DIR=$(dirname "$DIR")
 	#SUN_PARAM=`perl $PARENT_DIR/perl/sunParameters.perl`
-	SUN_PARAM=`python -c 'import $PARENT_DIR/python/SunParameter; print SunParameter.getSunParam()'`
+	SUN_PARAM=`python ./SunParameters.py`
 	echo $SUN_PARAM | grep -q -e "^[0-9][0-9]:[0-9][0-9] [0-9][0-9]:[0-9][0-9]$"
 	if [ $? != 0 ]; then
 		SUN_PARAM="07:00 17:00"
@@ -71,6 +71,9 @@ function disableEyeCustomiser()
 {
 	echo `crontab -l -u $USER 2>/dev/null | grep -v "eyeCustomiser.sh" | crontab -u $USER -` 1>/dev/null
 	eyeCustomiser 6500
+	for monitor in "${MONITOR[@]}"; do
+		echo `xrandr --output $monitor --brightness 1.0` 1>/dev/null
+	done
 }
 
 DIR="$(cd -- "$(dirname "$0")" && pwd)"

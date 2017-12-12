@@ -40,3 +40,9 @@ class SunParameters:
             time = self.lines[2].split(':', 1) 
             sunset = str(int(time[0]) - 1) + ':' + time[1]
             return sunset
+    def getSunParam(self):
+        rise = self.getSunrise()
+        sets = self.getSunset()
+        return rise + ' ' + sets + '\n'
+
+if __name__ == "__main__":

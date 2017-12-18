@@ -8,7 +8,7 @@ function HELP
 	\r -i, --initial\trun script in initial mode, add crontab jobs\n\
 	\r -c, --calc\tcalculate current color temperature\n\
 	\r -q, --disable\tdisable EyeCustomiser\n\
-	\rlibraries:\n it is recommended, but not necessary to get redshift program\n\
+	\n\r@libraries: it is recommended, but not necessary to get redshift program\n\
 	\n\n@NOTE: This script is part of EyeCare program.\n"
 }
 
@@ -45,8 +45,7 @@ function eyeCustomiser()
 function setConstants()
 {
 	PARENT_DIR=$(dirname "$DIR")
-	#SUN_PARAM=`perl $PARENT_DIR/perl/sunParameters.perl`
-	SUN_PARAM=`python ./SunParameters.py`
+	SUN_PARAM=`python ./src/SunParameters.py`
 	echo $SUN_PARAM | grep -q -e "^[0-9][0-9]:[0-9][0-9] [0-9][0-9]:[0-9][0-9]$"
 	if [ $? != 0 ]; then
 		SUN_PARAM="07:00 17:00"

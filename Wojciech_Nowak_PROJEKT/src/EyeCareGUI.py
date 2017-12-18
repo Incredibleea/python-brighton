@@ -19,7 +19,7 @@ class EyeCareGUI:
 			os.system(DIR + "/EyeCare.py --eyebreaker")
 			self.button_eb.configure(text="ON")
 		else:
-			subprocess.call(DIR + '/bash/eyeBreaker.sh --disable',shell=True)
+			subprocess.call(DIR + '/src/eyeBreaker.sh --disable',shell=True)
 			self.entry_eb.delete(first=0,last=10)
 			self.button_eb.configure(text="OFF")
 
@@ -28,11 +28,11 @@ class EyeCareGUI:
 			os.system(DIR + "/EyeCare.py --eyecustomiser")
 			self.button_ec.configure(text="ON")
 		else:
-			subprocess.call(DIR + '/bash/eyeCustomiser.sh --disable',shell=True)
+			subprocess.call(DIR + '/src/eyeCustomiser.sh --disable',shell=True)
 			self.button_ec.configure(text="OFF")
 
 	def eyeCustomiser(self, event):
-		subprocess.call(DIR + '/bash/eyeCustomiser.sh ' + self.entry_sct.get(),shell=True)
+		subprocess.call(DIR + '/src/eyeCustomiser.sh ' + self.entry_sct.get(),shell=True)
 
 	def disableEyeCare(self):
 		os.system(DIR + "/EyeCare.py --disable")
@@ -64,10 +64,10 @@ class EyeCareGUI:
 	\rTroubleshooting: type \'crontab -l\' in terminal to show current Cron jobs. \
 	\rIt should look like this: \n\
 	\rEyeBreaker enabled:\
-	\r*/55 * * * * PATH/Wojciech_Nowak_2_PROJEKT/bash/eyeBreaker.sh\
+	\r*/55 * * * * PATH/Wojciech_Nowak_2_PROJEKT/eyeBreaker.sh\
 	\rEyeCustomiser enabled: \
-	\r15 17 * * * PATH/Wojciech_Nowak_2_PROJEKT/bash/eyeCustomiser.sh 4500\
-	\r33 06 * * * PATH/Wojciech_Nowak_2_PROJEKT/bash/eyeCustomiser.sh 6500\
+	\r15 17 * * * PATH/Wojciech_Nowak_2_PROJEKT/eyeCustomiser.sh 4500\
+	\r33 06 * * * PATH/Wojciech_Nowak_2_PROJEKT/eyeCustomiser.sh 6500\
 ")
 
 	def __init__(self,master):

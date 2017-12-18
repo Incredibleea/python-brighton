@@ -7,21 +7,22 @@ function HELP
 	\roptional arguments:\n -h, --help\tshow this help message and exit\n\
 	\r -i, --initial\trun script in initial mode, add crontab jobs\n\
 	\r -q, --disable\tdisable EyeBreaker\n\
-	\rlibraries:\n it is recommended, but not necessary to get redshift program\n\
-	\n\n@NOTE: This script is part of EyeCare program.\n"
+	\n\r@libraries: it is recommended, but not necessary to get redshift program\n\
+	\n@NOTE: This script is part of EyeCare program.\n"
 }
 
 function eyeBreaker()
 {
 	CURR_BRIGHTNESS=`xrandr --verbose --current|grep Brightness | cut -d ":" -f 2`
-	for i in $(seq $CURR_BRIGHTNESS -0.01 0); do
+	echo $CURR_BRIGHTNESS
+	for i in $CURR_BRIGHTNESS-0.1 $CURR_BRIGHTNESS-0.2 $CURR_BRIGHTNESS-0.3 $CURR_BRIGHTNESS-0.4 $CURR_BRIGHTNESS-0.5 0 ; do
 		for monitor in "${MONITOR[@]}"; do
 			xrandr --display $DISPLAY --output $monitor --brightness $i
 			sleep 0.01
 		done
 	done
 	# SLIDESHOW
-	for i in $(seq 0 0.01 $CURR_BRIGHTNESS); do
+	for i in 0 $CURR_BRIGHTNESS-0.4 $CURR_BRIGHTNESS-0.3 $CURR_BRIGHTNESS-0.2 $CURR_BRIGHTNESS-0.1 $CURR_BRIGHTNESS; do
 		for monitor in "${MONITOR[@]}"; do
 			xrandr --display $DISPLAY --output $monitor --brightness $i
 			sleep 0.01

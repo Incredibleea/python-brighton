@@ -11,7 +11,7 @@ sys.path.append(DIR + '/src')
 
 
 parser = argparse.ArgumentParser(description='This is EyeCare, program which takes care of your Eyes.', epilog="\
-	\rlibraries:\n it is necessary for GUI purposes to get python-tk package\n")
+	\r@libraries:\n it is necessary for GUI purposes to get python-tk package\n")
 parser.add_argument("-f", "--fast", help=" Use default options for all arguments and turn on all functionalities.\
 	This option is major.", action="store_true")
 parser.add_argument("-g", "--gui", help=" Run EyeCare with Graphical User Interface.\
@@ -34,12 +34,12 @@ if available == "0":
 	print ("Currently you don't have any active graphical environment, so there is no sense to use this program.")
 else:
 	if args.fast == True:
-		subprocess.call(DIR + '/bash/eyeBreaker.sh -i ',shell=True)
-		subprocess.call(DIR + '/bash/eyeCustomiser.sh -i',shell=True)
+		subprocess.call(DIR + '/src/eyeBreaker.sh -i ',shell=True)
+		subprocess.call(DIR + '/src/eyeCustomiser.sh -i',shell=True)
 	else:
 		if args.disable == True:
-			subprocess.call(DIR + '/bash/eyeCustomiser.sh --disable',shell=True)
-			subprocess.call(DIR + '/bash/eyeBreaker.sh --disable',shell=True)
+			subprocess.call(DIR + '/src/eyeCustomiser.sh --disable',shell=True)
+			subprocess.call(DIR + '/src/eyeBreaker.sh --disable',shell=True)
 		else:
 			if args.gui == True:
 				try:
@@ -51,8 +51,8 @@ else:
 				initializeEyeCareGUI()
 			else:
 				if args.eyebreaker >= 1:
-					subprocess.call(DIR + '/bash/eyeBreaker.sh -i ' + str(args.eyebreaker),shell=True)
+					subprocess.call(DIR + '/src/eyeBreaker.sh -i ' + str(args.eyebreaker),shell=True)
 				if args.eyecustomiser == True:
-					subprocess.call(DIR + '/bash/eyeCustomiser.sh -i',shell=True)
+					subprocess.call(DIR + '/src/eyeCustomiser.sh -i',shell=True)
 				else:
 					print ("No options selected, type python EyeCare.py -h to print help")

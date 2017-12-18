@@ -9,9 +9,9 @@ class SunParameters:
     """Class SunParameters has two methods:
     String: getSunrise()\t\treturns today's sunrise time in Cracow,
     String: getSunset()\t\t\treturns today's sunset time in Cracow.
-	\rRequirements:\nIt is neccessary to have Internet connection to make this script runs correctly.
-    In case of no Internet connection default value will be returned (sunrise = 7:00, sunset = 17:00).
-	\rNOTE: This script is part of EyeCare program.\n"""
+	\r\nRequirements:\nIt is neccessary to have Internet connection to make this script runs correctly.
+    \rIn case of no Internet connection default value will be returned (sunrise = 7:00, sunset = 17:00).
+	\r\nNOTE: This script is part of EyeCare program.\n"""
 
     lines = []
     errFlag = False
@@ -46,4 +46,5 @@ class SunParameters:
         return rise + ' ' + sets + '\n'
 
 if __name__ == "__main__":
+    print SunParameters.__doc__
     SunParameters().getSunParam()

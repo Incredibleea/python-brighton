@@ -14,7 +14,6 @@ function HELP
 function eyeBreaker()
 {
 	CURR_BRIGHTNESS=`xrandr --verbose --current|grep Brightness | cut -d ":" -f 2`
-	CURR_BRIGHTNESS=`echo ${CURR_BRIGHTNESS##0}`
 	for i in $CURR_BRIGHTNESS-0.1 $CURR_BRIGHTNESS-0.2 $CURR_BRIGHTNESS-0.3 $CURR_BRIGHTNESS-0.4 $CURR_BRIGHTNESS-0.5 0 ; do
 		for monitor in "${MONITOR[@]}"; do
 			xrandr --display $DISPLAY --output $monitor --brightness $i

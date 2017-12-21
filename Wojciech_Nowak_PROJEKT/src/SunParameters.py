@@ -41,7 +41,7 @@ class SunParameters:
             sunset = str(int(time[0]) - 1) + ':' + time[1]
             return sunset
     def getSunParam(self):
-        rise = self.getSunrise()[1:]
+        rise = self.getSunrise()
         sets = self.getSunset()
         return rise + ' ' + sets + '\n'
 

@@ -15,6 +15,7 @@ function HELP
 function calcAndSet()
 {
 	CURR_TIME=$CURR_HOUR$CURR_MINUTE
+	CURR_TIME=`echo ${CURR_TIME##0}`
 	SET_TIME=$SET_HOUR$SET_MINUTE
 	RISE_TIME=$RISE_HOUR$RISE_MINUTE
 	if [[ $CURR_TIME -le $SET_TIME ]] && [[ $CURR_TIME -ge $RISE_TIME ]]; then
